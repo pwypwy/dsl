@@ -31,3 +31,16 @@ patchPluginXml {
       Add change notes here.<br>
       <em>most HTML tags may be used</em>"""
 }
+
+sourceSets {
+    main {
+        java {
+            //源代码的dir
+            srcDirs = ['src']
+        }
+        resources {
+            //class文件的dir
+            srcDirs = ['bin']
+        }
+    }
+}
