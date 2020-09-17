@@ -52,12 +52,18 @@ class Ob{
  */
 class Role{
     var name = ""
+    //var a = Int.monoid
     var props = mutableMapOf<String,MutableMap<String,String>>()
     val eventQueue = mutableListOf<Event>()
 
 }
 
+
+
 class One(var h:Int=1,var b:Int=2){
+
+
+
     fun head(){
         h=111
         println(1111)
