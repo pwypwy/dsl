@@ -1,5 +1,6 @@
 package temp
 
+import com.jetbrains.rd.util.put
 import org.jetbrains.debugger.sourcemap.parseMapSafely
 
 typealias Param = Map<String,String>
@@ -51,5 +52,27 @@ class Role(val name:String){
     var attr:MutableMap<String,String> = mutableMapOf()
     override fun toString(): String {
         return "$name  attr:  $attr"
+    }
+}
+
+/**
+ * 事件组
+ * 按标签分组
+ */
+class EventGroup{
+    private val data:MutableMap<String,MutableSet<String>> = mutableMapOf()
+    companion object{
+
+        fun init(event: String, vararg pairs: String):EventGroup{
+            val d = EventGroup()
+            for (pair in pairs) {
+                if(d.data.containsKey(pair)){
+                    d.data[pair]?.add(event)
+                }else{
+                    d.data[pair] = mutableSetOf(event)
+                }
+            }
+            return d
+        }
     }
 }
